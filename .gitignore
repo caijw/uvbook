@@ -4,3 +4,5 @@ env
 *.swo
 *.o
 *.dylib
+*.out
+core
