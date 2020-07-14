@@ -1,3 +1,4 @@
+// 这个栗子有bug
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -87,8 +88,9 @@ void curl_perform(uv_poll_t *req, int status, int events) {
     if (!status && events & UV_WRITABLE) flags |= CURL_CSELECT_OUT;
 
     curl_context_t *context;
-
-    context = (curl_context_t*)req;
+    // 这里应该是  req->data
+    // context = (curl_context_t*)req;
+    context = (curl_context_t*)req->data;
 
     curl_multi_socket_action(curl_handle, context->sockfd, flags, &running_handles);
     check_multi_info();   

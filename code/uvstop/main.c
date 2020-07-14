@@ -10,11 +10,13 @@ void idle_cb(uv_idle_t *handle) {
     if (counter >= 5) {
         uv_stop(uv_default_loop());
         printf("uv_stop() called\n");
+        // uv_run(uv_default_loop(), UV_RUN_DEFAULT);
     }
 }
 
 void prep_cb(uv_prepare_t *handle) {
     printf("Prep callback\n");
+
 }
 
 int main() {
